@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         activatedButtons.removeAll()   //clears the array
     }
     
-    func letterTapped(btn: UIButton) {
+    @objc func letterTapped(btn: UIButton) {
     
         currentAnswer.text = currentAnswer.text! + btn.titleLabel!.text!  //gets the text of the titleLabel of the button that was tapped. we need to force unwrap the titleLabel and text because they both might not exist
         
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
                     
                     let solutionWord = answer.replacingOccurrences(of: "|", with: "")
                     
-                    solutionString += "\(solutionWord.characters.count) letters\n"
+                    solutionString += "\(solutionWord.count) letters\n"
                     solutions.append(solutionWord)
                     
                     let bits = answer.components(separatedBy: "|")  //converts it to an array of 3 elements then add all 3 to letterbits array
